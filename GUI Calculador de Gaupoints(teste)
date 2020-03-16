@@ -82,8 +82,8 @@ class GUI extends JFrame {
                     qntdA += 1;
                     tempo += 150;
                 }
-                int dias = tempo / 60 / 60 / 24;
-                int horas = (tempo / 60 / 60) % 24;
+                int dias = tempo / 86400;
+                int horas = (tempo / 3600) % 24;
                 int minutos = (tempo / 60) % 60;
                 int segundos = tempo % 60;
                 qntdDias.setText(String.valueOf(dias));

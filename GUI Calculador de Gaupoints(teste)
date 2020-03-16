@@ -57,7 +57,6 @@ class GUI extends JFrame {
         pnC.add(qntdMeta);
 
         cp.add(pnA);
-        cp.add(pnA, BorderLayout.SOUTH);
         pnA.add(btCalcular);
         pnA.add(lbDias);
         pnA.add(qntdDias);

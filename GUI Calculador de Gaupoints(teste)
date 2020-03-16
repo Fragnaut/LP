@@ -29,7 +29,7 @@ class GUI extends JFrame {
     JLabel lbDias = new JLabel("Dias");
     JLabel lbHoras = new JLabel("Horas");
     JLabel lbMinutos = new JLabel("Minutos");
-    JLabel lbSegundos = new JLabel("e Segundos");
+    JLabel lbSegundos = new JLabel("Segundos");
 
     JButton btCalcular = new JButton("Calcular");
 

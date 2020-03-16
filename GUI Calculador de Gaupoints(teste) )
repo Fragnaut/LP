@@ -1,0 +1,86 @@
+package main;
+
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+/**
+ *
+ * @author Fragnaut
+ */
+class GUI extends JFrame {
+
+    Container cp;
+
+    JPanel pnA = new JPanel();
+    JPanel pnB = new JPanel();
+    JPanel pnC = new JPanel();
+    JPanel pnD = new JPanel();
+    JLabel lbTitulo = new JLabel("Quantidade atual de Gaupoints");
+    JLabel lbTitulo2 = new JLabel("Quantidade de Gaupoints a ser atingida");
+    JLabel lbHoras = new JLabel("horas");
+    JLabel lbMinutos = new JLabel("minutos");
+    JLabel lbSegundos = new JLabel("segundos");
+    JButton btCalcular = new JButton("Calcular");
+    JTextField qntdAtual = new JTextField(3);
+    JTextField qntdMeta = new JTextField(3);
+    JTextField qntdHoras = new JTextField(2);
+    JTextField qntdMinutos = new JTextField(2);
+    JTextField qntdSegundos = new JTextField(2);
+
+    public GUI() {
+        this.setTitle("Calculador de Gaupoints");
+
+        cp = getContentPane();
+        cp.setLayout(new GridLayout(4, 1));
+
+        cp.add(pnD);
+
+        cp.add(pnB);
+        pnB.add(lbTitulo);
+        pnB.add(qntdAtual);
+
+        cp.add(pnC);
+        pnC.add(lbTitulo2);
+        pnC.add(qntdMeta);
+
+        cp.add(pnA);
+        cp.add(pnA, BorderLayout.SOUTH);
+        pnA.add(btCalcular);
+        pnA.add(lbHoras);
+        pnA.add(qntdHoras);
+        pnA.add(lbMinutos);
+        pnA.add(qntdMinutos);
+        pnA.add(lbSegundos);
+        pnA.add(qntdSegundos);
+
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setSize(640, 480);
+        setVisible(true);
+
+        btCalcular.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double qntdA = Double.valueOf(qntdAtual.getText());
+                double qntdM = Double.valueOf(qntdMeta.getText());
+                int tempo = 0;
+                while (qntdA < qntdM) {
+                    qntdA += 1;
+                    tempo += 150;
+                }
+                int horas = tempo / 3600;;
+                int minutos = (tempo - (horas * 3600)) / 60;
+                int segundos = tempo - (horas * 3600) - (minutos * 60);
+                qntdHoras.setText(String.valueOf(horas));
+                qntdMinutos.setText(String.valueOf(minutos));
+                qntdSegundos.setText(String.valueOf(segundos));
+            }
+        });
+    }
+}

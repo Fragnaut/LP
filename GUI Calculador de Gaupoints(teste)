@@ -23,17 +23,22 @@ class GUI extends JFrame {
     JPanel pnB = new JPanel();
     JPanel pnC = new JPanel();
     JPanel pnD = new JPanel();
+
     JLabel lbTitulo = new JLabel("Quantidade atual de Gaupoints");
     JLabel lbTitulo2 = new JLabel("Quantidade de Gaupoints a ser atingida");
-    JLabel lbHoras = new JLabel("horas");
-    JLabel lbMinutos = new JLabel("minutos");
-    JLabel lbSegundos = new JLabel("segundos");
+    JLabel lbDias = new JLabel("Dias");
+    JLabel lbHoras = new JLabel("Horas");
+    JLabel lbMinutos = new JLabel("Minutos");
+    JLabel lbSegundos = new JLabel("e Segundos");
+
     JButton btCalcular = new JButton("Calcular");
-    JTextField qntdAtual = new JTextField(3);
-    JTextField qntdMeta = new JTextField(3);
-    JTextField qntdHoras = new JTextField(2);
-    JTextField qntdMinutos = new JTextField(2);
-    JTextField qntdSegundos = new JTextField(2);
+
+    JTextField qntdAtual = new JTextField(5);
+    JTextField qntdMeta = new JTextField(5);
+    JTextField qntdDias = new JTextField(3);
+    JTextField qntdHoras = new JTextField(3);
+    JTextField qntdMinutos = new JTextField(3);
+    JTextField qntdSegundos = new JTextField(3);
 
     public GUI() {
         this.setTitle("Calculador de Gaupoints");
@@ -54,6 +59,8 @@ class GUI extends JFrame {
         cp.add(pnA);
         cp.add(pnA, BorderLayout.SOUTH);
         pnA.add(btCalcular);
+        pnA.add(lbDias);
+        pnA.add(qntdDias);
         pnA.add(lbHoras);
         pnA.add(qntdHoras);
         pnA.add(lbMinutos);
@@ -75,9 +82,11 @@ class GUI extends JFrame {
                     qntdA += 1;
                     tempo += 150;
                 }
-                int horas = tempo / 3600;;
-                int minutos = (tempo - (horas * 3600)) / 60;
-                int segundos = tempo - (horas * 3600) - (minutos * 60);
+                int dias = tempo / 60 / 60 / 24;
+                int horas = (tempo / 60 / 60) % 24;
+                int minutos = (tempo / 60) % 60;
+                int segundos = tempo % 60;
+                qntdDias.setText(String.valueOf(dias));
                 qntdHoras.setText(String.valueOf(horas));
                 qntdMinutos.setText(String.valueOf(minutos));
                 qntdSegundos.setText(String.valueOf(segundos));

@@ -102,7 +102,7 @@ class GUI extends JFrame {
                         qntdN++;
                         if (notas[i] < 0) {
                             qntdN--;
-                            int k = 3/0;
+                             JOptionPane.showMessageDialog(null, "erro, " + notas[i] + " nota menor que 0", "Erro", JOptionPane.INFORMATION_MESSAGE);
                         }
                         if (notas[i] > 10) {
                             JOptionPane.showMessageDialog(null, "erro, " + notas[i] + " nota maior que 10", "Erro", JOptionPane.INFORMATION_MESSAGE);

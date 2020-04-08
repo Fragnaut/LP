@@ -93,20 +93,25 @@ class GUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int verificador = 0;
+                double nota1 = 0;
+                double nota2 = 0;
+                double nota3 = 0;
                 double[] notas = new double[3];
                 try {
                     notas[0] = Double.parseDouble(tfNota1.getText().replace(",", "."));
                     notas[1] = Double.parseDouble(tfNota2.getText().replace(",", "."));
                     notas[2] = Double.parseDouble(tfNota3.getText().replace(",", "."));
+                    nota1 = Double.parseDouble(tfNota1.getText().replace(",", "."));
+                    nota2 = Double.parseDouble(tfNota2.getText().replace(",", "."));
+                    nota3 = Double.parseDouble(tfNota3.getText().replace(",", "."));
                     for (int i = 0; i < 3; i++) {
                         if (notas[i] < 0) {
                             verificador = 1;
-                             JOptionPane.showMessageDialog(null, "erro, " + notas[i] + " nota menor que 0", "Erro", JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "erro, " + notas[i] + " nota menor que 0", "Erro", JOptionPane.INFORMATION_MESSAGE);
                         }
                         if (notas[i] > 10) {
                             JOptionPane.showMessageDialog(null, "erro, " + notas[i] + " nota maior que 10", "Erro", JOptionPane.INFORMATION_MESSAGE);
                             verificador = 1;
-
                         }
                     }
                 } catch (Exception erro) {
@@ -117,14 +122,12 @@ class GUI extends JFrame {
                     lbMediaa.setText(Double.toString(processamento.getMedia()));
                     lbResultadoo.setText(processamento.getResultado());
                     lbCodigoo.setText("| " + tfCodigo.getText() + " | ");
-                    lbNotaa1.setText("| " + Double.toString(notas[0]) + " | ");
-                    lbNotaa2.setText(Double.toString(notas[1]) + " | ");
-                    lbNotaa3.setText(Double.toString(notas[2]) + " |");
+                    lbNotaa1.setText("| " + Double.toString(nota1) + " | ");
+                    lbNotaa2.setText(Double.toString(nota2) + " | ");
+                    lbNotaa3.setText(Double.toString(nota3) + " |");
                 }
-
             }
         }
         );
     }
-
 }

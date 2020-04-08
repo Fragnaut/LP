@@ -92,28 +92,27 @@ class GUI extends JFrame {
         btCalcular.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int qntdN = 0;
+                int verificador = 0;
                 double[] notas = new double[3];
                 try {
                     notas[0] = Double.parseDouble(tfNota1.getText().replace(",", "."));
                     notas[1] = Double.parseDouble(tfNota2.getText().replace(",", "."));
                     notas[2] = Double.parseDouble(tfNota3.getText().replace(",", "."));
                     for (int i = 0; i < 3; i++) {
-                        qntdN++;
                         if (notas[i] < 0) {
-                            qntdN--;
+                            verificador = 1;
                              JOptionPane.showMessageDialog(null, "erro, " + notas[i] + " nota menor que 0", "Erro", JOptionPane.INFORMATION_MESSAGE);
                         }
                         if (notas[i] > 10) {
                             JOptionPane.showMessageDialog(null, "erro, " + notas[i] + " nota maior que 10", "Erro", JOptionPane.INFORMATION_MESSAGE);
-                            qntdN--;
+                            verificador = 1;
 
                         }
                     }
                 } catch (Exception erro) {
                     JOptionPane.showMessageDialog(null, "erro na entrada", "Erro", JOptionPane.INFORMATION_MESSAGE);
                 }
-                if (qntdN == 3) {
+                if (verificador == 0) {
                     Processamento processamento = new Processamento(notas);
                     lbMediaa.setText(Double.toString(processamento.getMedia()));
                     lbResultadoo.setText(processamento.getResultado());

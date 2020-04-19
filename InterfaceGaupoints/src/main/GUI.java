@@ -46,7 +46,6 @@ class GUI extends JFrame {
         cp = getContentPane();
         cp.setLayout(new GridLayout(4, 1));
 
-
         cp.add(pnA);
         pnA.add(lbTitulo);
         pnA.add(qntdAtual);
@@ -57,16 +56,16 @@ class GUI extends JFrame {
 
         cp.add(pnC);
         pnC.add(btCalcular);
-        
+
         cp.add(pnD);
-        pnD.add(lbDias);
         pnD.add(lbDias1);
-        pnD.add(lbHoras);
+        pnD.add(lbDias);
         pnD.add(lbHoras2);
-        pnD.add(lbMinutos);
+        pnD.add(lbHoras);
         pnD.add(lbMinutos3);
-        pnD.add(lbSegundos);
+        pnD.add(lbMinutos);
         pnD.add(lbSegundos4);
+        pnD.add(lbSegundos);
 
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setSize(640, 480);
@@ -84,12 +83,10 @@ class GUI extends JFrame {
                     if (qntdA < 0) {
                         verificador = 1;
                         JOptionPane.showMessageDialog(null, "erro, valor de gaupoints menor que 0 ", "Erro", JOptionPane.INFORMATION_MESSAGE);
-                    }
-                    if (qntdM < 0) {
+                    } else if (qntdM < 0) {
                         verificador = 1;
                         JOptionPane.showMessageDialog(null, "erro, valor da meta menor que 0 ", "Erro", JOptionPane.INFORMATION_MESSAGE);
-                    }
-                    if (qntdA >= qntdM) {
+                    } else if (qntdA >= qntdM) {
                         verificador = 1;
                         JOptionPane.showMessageDialog(null, "erro, valor de gaupoints maior que a meta ", "Erro", JOptionPane.INFORMATION_MESSAGE);
                     }

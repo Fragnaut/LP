@@ -5,17 +5,17 @@ package main;
  * @author Fragnaut
  */
 public class Processamento {
-
+    
+    private int tempo = 0;
     private int dias = 0;
     private int horas = 0;
     private int minutos = 0;
     private int segundos = 0;
 
     public Processamento(int qntdA, int qntdM) {
-        int tempo = 0;
         while (qntdA < qntdM) {
             qntdA += 1;
-            tempo += 100;
+            tempo += 600;//Tempo em Segundos
         }
         dias = tempo / 86400;
         horas = (tempo / 3600) % 24;

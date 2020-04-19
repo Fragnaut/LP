@@ -15,7 +15,7 @@ public class Processamento {
     public Processamento(int qntdA, int qntdM) {
         while (qntdA < qntdM) {
             qntdA += 1;
-            tempo += 600;//Tempo em Segundos
+            tempo += 100;//Tempo em Segundos
         }
         dias = tempo / 86400;
         horas = (tempo / 3600) % 24;

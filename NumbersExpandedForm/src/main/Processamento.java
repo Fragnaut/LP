@@ -16,7 +16,7 @@ public class Processamento {
             j--;
             arrayNumbers[i] = Integer.parseInt(arrayString[i]) * (int) Math.pow(10, j);
             if (arrayNumbers[i] != 0) {
-                if (arrayNumbers[i] != num && i != arrayString.length - 1) {
+                if (i < arrayString.length - 2) {
                     numbers += arrayNumbers[i] + " + ";
                 } else {
                     numbers += arrayNumbers[i];
@@ -24,6 +24,5 @@ public class Processamento {
             }
         }
         return numbers;
-    }
-
+        }
 }

@@ -114,18 +114,19 @@ class GUI extends JFrame {
                             verificador = 1;
                         }
                     }
+                    if (verificador == 0) {
+                        Processamento processamento = new Processamento(notas);
+                        lbMediaa.setText(Double.toString(processamento.getMedia()));
+                        lbResultadoo.setText(processamento.getResultado());
+                        lbCodigoo.setText("| " + tfCodigo.getText() + " | ");
+                        lbNotaa1.setText("| " + Double.toString(nota1) + " | ");
+                        lbNotaa2.setText(Double.toString(nota2) + " | ");
+                        lbNotaa3.setText(Double.toString(nota3) + " |");
+                    }
                 } catch (Exception erro) {
                     JOptionPane.showMessageDialog(null, "erro na entrada", "Erro", JOptionPane.INFORMATION_MESSAGE);
                 }
-                if (verificador == 0) {
-                    Processamento processamento = new Processamento(notas);
-                    lbMediaa.setText(Double.toString(processamento.getMedia()));
-                    lbResultadoo.setText(processamento.getResultado());
-                    lbCodigoo.setText("| " + tfCodigo.getText() + " | ");
-                    lbNotaa1.setText("| " + Double.toString(nota1) + " | ");
-                    lbNotaa2.setText(Double.toString(nota2) + " | ");
-                    lbNotaa3.setText(Double.toString(nota3) + " |");
-                }
+
             }
         }
         );

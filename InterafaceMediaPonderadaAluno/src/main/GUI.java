@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author Fragnaut
+ * @author Winicius Abilio de Britto
  */
 class GUI extends JFrame {
 

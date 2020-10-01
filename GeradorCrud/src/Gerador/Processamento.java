@@ -135,8 +135,6 @@ public class Processamento {
                 case "double":
                     pkBtBuscar = tipo + " " + nomeAtributo + " = Double.valueOf(tf" + nomeAtributo + ".getText());\n";
                     break;
-                case "boolean":
-                    break;
             }
         }
 
